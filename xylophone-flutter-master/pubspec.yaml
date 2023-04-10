@@ -9,8 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^0.1.2
+  audioplayers: ^0.17.4
   # Use Audioplayers dependency version 0.17.4
 
 dev_dependencies:
