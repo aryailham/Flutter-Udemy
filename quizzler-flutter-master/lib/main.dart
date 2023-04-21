@@ -31,11 +31,13 @@ class _QuizPageState extends State<QuizPage> {
   Icon check = Icon(
     Icons.check,
     color: Colors.green,
+    size: 20,
   );
 
   Icon close = Icon(
     Icons.close,
     color: Colors.red,
+    size: 20,
   );
 
   void answerTrue() {
@@ -124,8 +126,12 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
         ),
-        Row(
-          children: interactor.getScore(),
+        Container(
+          height: 25,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: interactor.getScore(),
+          ),
         )
       ],
     );
