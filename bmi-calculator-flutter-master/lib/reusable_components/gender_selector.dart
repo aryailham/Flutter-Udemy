@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bmi_calculator/constants.dart';
 
 class GenderSelector extends StatelessWidget {
   GenderSelector({this.genderIcon = FontAwesomeIcons.mars, this.genderTitle = "Male"});
@@ -22,10 +23,7 @@ class GenderSelector extends StatelessWidget {
           ),
           Text(
             genderTitle,
-            style: TextStyle(
-                fontSize: 20,
-                color: Colors.grey[300]
-            ),
+            style: kLabelTextStyle,
           )
         ],
       ),
