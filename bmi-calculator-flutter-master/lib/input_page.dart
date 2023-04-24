@@ -47,25 +47,19 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   ReusableCard(
                       color: maleCardColor,
-                      cardChild: GestureDetector(
-                          onTap: () {
-                            print("male is tapped");
-                            changeGender(Gender.male);
-                          },
-                          child: GenderSelector()
-                      )
+                      onPress: () {
+                        changeGender(Gender.male);
+                      },
+                      cardChild: GenderSelector()
                   ),
                   ReusableCard(
                     color: femaleCardColor,
-                    cardChild: GestureDetector(
-                      onTap: () {
-                        print("Female is tapped");
-                        changeGender(Gender.female);
-                      },
-                      child: GenderSelector(
-                        genderIcon: FontAwesomeIcons.venus, 
-                        genderTitle: "Female",
-                      ),
+                    onPress: () {
+                      changeGender(Gender.female);
+                    },
+                    cardChild: GenderSelector(
+                      genderIcon: FontAwesomeIcons.venus, 
+                      genderTitle: "Female",
                     )
                   )
                 ],
