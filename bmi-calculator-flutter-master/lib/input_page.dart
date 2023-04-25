@@ -16,7 +16,10 @@ class _InputPageState extends State<InputPage> {
 
   Color maleCardColor = kInactiveCardColor;
   Color femaleCardColor = kInactiveCardColor;
+
   int height = 170;
+  int weight = 60;
+  int age = 19;
 
   void changeGender(Gender gender) {
     selectedGender = gender;
@@ -104,7 +107,72 @@ class _InputPageState extends State<InputPage> {
           Expanded(
               flex: 1,
               child: Row(
-                children: [ReusableCard(), ReusableCard()],
+                children: [
+                  ReusableCard(
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("WEIGHT", style: kLabelTextStyle),
+                        Text(weight.toString(), style: kNumberTextStyle),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            RoundIconButton(
+                              child: Icon(FontAwesomeIcons.minus),
+                              onPressed: () {
+                                setState(() {
+                                  if(weight > 0) {
+                                    weight -= 1;
+                                  }
+                                });
+                              },
+                            ),
+                            RoundIconButton(
+                              child: Icon(FontAwesomeIcons.plus),
+                              onPressed: () {
+                                setState(() {
+                                  weight += 1;
+                                });
+                              },
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  ReusableCard(
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("AGE", style: kLabelTextStyle),
+                        Text(age.toString(), style: kNumberTextStyle),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            RoundIconButton(
+                              child: Icon(FontAwesomeIcons.minus),
+                              onPressed: () {
+                                setState(() {
+                                  if(age > 0) {
+                                    age -= 1;
+                                  }
+                                });
+                              },
+                            ),
+                            RoundIconButton(
+                              child: Icon(FontAwesomeIcons.plus),
+                              onPressed: () {
+                                setState(() {
+                                  age += 1;
+                                });
+                              },
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               )),
           Container(
             color: kBottomContainerColor,
@@ -114,6 +182,29 @@ class _InputPageState extends State<InputPage> {
           )
         ],
       ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  RoundIconButton({this.child, this.onPressed});
+  
+  final Widget child;
+
+  final Function onPressed;
+  
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      child: child,
+      onPressed: onPressed,
+      elevation: 6.0,
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0
+      ),
+      shape: CircleBorder(),
+      fillColor: Color(0xFF4C4F5E),
     );
   }
 }
